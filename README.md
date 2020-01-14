@@ -10,5 +10,7 @@ Content
 
 Installation
 ------------
-The whitepeaks software framework is a set of functions and can be installed via 
+You can use pip to install whitepeaks::
+
+pip install whitepeaks
 
