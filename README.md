@@ -9,3 +9,6 @@ Use pip to install whitepeaks on your local machine via the command
 ```
 pip install whitepeaks
 ```
+
+## Documentation
+Note that the documnentation (doc folder) is still in progress!
