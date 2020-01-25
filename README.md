@@ -11,4 +11,4 @@ pip install whitepeaks
 ```
 
 ## Documentation
-Note that the documnentation (doc folder) is still in progress!
+The documentation is in progress!
