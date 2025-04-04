@@ -18,7 +18,8 @@ This module contains the following functions:
 
 import numpy as np
 
-from scipy.misc import derivative
+#from scipy.misc import derivative
+import numdifftools as nd
 
 c=0.299792458 #Speed of light in um/fs or mm/ps
 
@@ -94,7 +95,9 @@ def GV(lambdas,fn_n,args):
     n=fn_n(lambdas,args)
     
     #first derivative evaluated at lambda
-    dn=derivative(fn_n,lambdas,dx=1e-3,args=(args,),order=13)
+    #dn=derivative(fn_n,lambdas,dx=1e-3,args=(args,),order=13)
+    dn=nd.Derivative(fn_n, n=1)
+    dn=dn(lambdas,args)
     
     #return group velocity
     return (1.0/c*(n-lambdas*dn))**-1
@@ -122,7 +125,9 @@ def GVD(lambdas,fn_n,args):
     """
     
     #second derivative of index of refraction evaluated at lambda
-    d2n=derivative(fn_n,lambdas,dx=1e-4,n=2,args=(args,),order=13)
+    #d2n=derivative(fn_n,lambdas,dx=1e-4,n=2,args=(args,),order=13)
+    d2n=nd.Derivative(fn_n, n=2)
+    d2n=d2n(lambdas,args)
     
     #return GVD
     return lambdas**3/(2*np.pi*c**2)*d2n
